@@ -30,7 +30,25 @@ public class EmailValidation
 		EmailValidation emailCheck5 = new EmailValidation();
 		String str5 = ".in";
 		emailCheck5.checkOptionalDomainName(str5);
-		
+	
+		//verifying a email id by merging all the use cases
+		EmailValidation emailCheck = new EmailValidation();
+		String emailAddress = "abc.xyz@bridgelabz.co.in";
+		emailCheck.checkFullEmailAddress(emailAddress);		
+	}
+
+	// method to verify a full email address 
+	private void checkFullEmailAddress(String emailAddress)
+	{
+		boolean isMatched = Pattern.compile("^[0-9a-zA-Z]+([.,+,_,-]{1}[0-9a-zA-Z]+)*@[0-9a-zA-Z]+[.]{1}[a-zA-Z]{2,3}([.]{1}[a-zA-Z]{2})?").matcher(emailAddress).matches();
+		if (isMatched) 
+		{			
+			System.out.println("Email is valid");
+		}
+		else
+		{			
+			System.out.println("Email is invalid");
+		}
 	}
 
 	//check optional domain name should start with . and have only 2 letters 
